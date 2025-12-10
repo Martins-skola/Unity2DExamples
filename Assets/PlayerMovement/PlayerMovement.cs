@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleJump()
     {
-        // Om spelaren trycker på mellanslag OCH står på marken
+        // Om spelaren trycker på mellanslag
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Sätt uppåthastigheten till jumpForce
