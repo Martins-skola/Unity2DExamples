@@ -35,5 +35,12 @@ public class CircleSpawner : MonoBehaviour
         {
             instance.AddComponent<Rigidbody2D>();
         }
+
+        // Lägger till ObjectDestroyer-komponenten för att automatiskt ta bort cirkeln efter en tids inaktivitet
+        // Sparar på en temporär referens till komponenten för att kunna ställa in dess egenskaper
+        ObjectDestroyer destroyer = instance.AddComponent<ObjectDestroyer>();
+        destroyer.destroyCondition = ObjectDestroyer.DestroyCondition.Inactivity; // Använder inaktivitetsbaserad förstöring
+        destroyer.inactivityTime = 2f; // Förstör efter 2 sekunders inaktivitet (inte rört sig)
+        destroyer.movementThreshold = 0.01f; // Räkna som inaktivitet om förflyttning är mindre än detta värde
     }
 }
